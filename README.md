@@ -1,6 +1,6 @@
 # ASE230-Company-Website
 
-##Members
+## Members
 AJ Schulte
 Joseph Gallucci
 Riley Fitzgerald
