@@ -1,0 +1,29 @@
+{
+"plan1": {
+    "plan": "Economy",
+    "price": "9.90",
+    "bandwidth": "1GB",
+    "onlinespace": "50MB",
+    "support": "No",
+    "domains": "1",
+    "fees": "No"
+},
+"plan2":{
+    "plan": "Deluxe",
+    "price": "19.90",
+    "bandwidth": "10GB",
+    "onlinespace": "500MB",
+    "support": "Yes",
+    "domains": "10",
+    "fees": "No"
+},
+"plan3":{
+    "plan": "Ultimate",
+    "price": "29.90",
+    "bandwidth": "100GB",
+    "onlinespace": "2GB",
+    "support": "Yes",
+    "domains": "Unlimited",
+    "fees": "No"
+}
+}

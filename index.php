@@ -1,5 +1,6 @@
 <?php 
 include './lib/textReader.php';
+include './lib/JSONreader.php';
 
 ?>
 <!DOCTYPE html>
@@ -406,46 +407,49 @@ include './lib/textReader.php';
             <div class="row mt-5">
                 <div class="col-lg-4">
                     <div class="text-center pricing-box">
-                        <h4 class="text-uppercase">Economy</h4>
-                        <h1>$9.90</h1>
+                        <?php $plan1 = readJSON("plan1");?>
+                        <h4 class="text-uppercase"><?= $plan1["plan"]?></h4>
+                        <h1>$<?= $plan1["price"]?></h1>
                         <h6 class="text-uppercase text-muted">Billing Per Month</h6>
                         <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">1GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">50MB</b></p>
-                            <p>Support: <b class="text-primary">No</b></p>
-                            <p><b class="text-primary">1</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                            <p>Bandwidth: <b class="text-primary"><?= $plan1["bandwidth"]?></b></p>
+                            <p>Onlinespace: <b class="text-primary"><?= $plan1["onlinespace"]?></b></p>
+                            <p>Support: <b class="text-primary"><?= $plan1["support"]?></b></p>
+                            <p><b class="text-primary"><?= $plan1["domains"]?></b> Domain</p>
+                            <p><b class="text-primary"><?= $plan1["fees"]?></b> Hidden Fees</p>
                         </div>
                         <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="text-center pricing-box price-active">
+                        <?php $plan2 = readJSON("plan2");?>
                         <div class="ribbon-box"><span>Popular</span></div>
-                        <h4 class="text-uppercase">Deluxe</h4>
-                        <h1>$19.90</h1>
+                        <h4 class="text-uppercase"><?= $plan2["plan"]?></h4>
+                        <h1>$<?= $plan2["price"]?></h1>
                         <h6 class="text-uppercase text-muted">Billing Per Month</h6>
                         <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">10GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">500MB</b></p>
-                            <p>Support: <b class="text-primary">Yes</b></p>
-                            <p><b class="text-primary">10</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                            <p>Bandwidth: <b class="text-primary"><?= $plan2["bandwidth"]?></b></p>
+                            <p>Onlinespace: <b class="text-primary"><?= $plan2["onlinespace"]?></b></p>
+                            <p>Support: <b class="text-primary"><?= $plan2["support"]?></b></p>
+                            <p><b class="text-primary"><?= $plan2["domains"]?></b> Domain</p>
+                            <p><b class="text-primary"><?= $plan2["fees"]?></b> Hidden Fees</p>
                         </div>
                         <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="text-center pricing-box">
-                        <h4 class="text-uppercase">Ultimate</h4>
-                        <h1>$29.90</h1>
+                        <?php $plan3 = readJSON("plan3");?>
+                        <h4 class="text-uppercase"><?= $plan3["plan"]?></h4>
+                        <h1>$<?= $plan3["price"]?></h1>
                         <h6 class="text-uppercase text-muted">Billing Per Month</h6>
                         <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">100GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">2 GB</b></p>
-                            <p>Support: <b class="text-primary">Yes</b></p>
-                            <p><b class="text-primary">Unlimited</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
+                            <p>Bandwidth: <b class="text-primary"><?= $plan3["bandwidth"]?></b></p>
+                            <p>Onlinespace: <b class="text-primary"><?= $plan3["onlinespace"]?></b></p>
+                            <p>Support: <b class="text-primary"><?= $plan3["support"]?></b></p>
+                            <p><b class="text-primary"><?= $plan3["domains"]?></b> Domain</p>
+                            <p><b class="text-primary"><?= $plan3["fees"]?></b> Hidden Fees</p>
                         </div>
                         <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
                     </div>
