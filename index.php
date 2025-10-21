@@ -1,10 +1,13 @@
+<?php 
+include './lib/textReader.php';
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <title>Hiric</title>
+    <title>Starluxe Innovations Ltd.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
     <meta name="keywords" content="bootstrap 5, premium, marketing, multipurpose" />
@@ -31,7 +34,7 @@
         <div class="container">
             <!-- LOGO -->
             <a class="navbar-brand logo text-uppercase" href="index.html">
-                <i class="mdi mdi-alien"></i>Hiric
+                <i class="mdi mdi-alien"></i>Starluxe Innovations Ltd.
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
@@ -55,9 +58,6 @@
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#pricing" class="nav-link">Pricing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a data-scroll href="#blog" class="nav-link">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a data-scroll href="#contact" class="nav-link">Contact</a>
@@ -84,10 +84,13 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-white text-center">
-                    <h4 class="home-small-title">Awesome Design</h4>
-                    <h1 class="home-title">We love make things amazing and simple</h1>
-                    <p class="pt-3 home-desc mx-auto">Maecenas class semper class semper sollicitudin lectus lorem
-                        iaculis imperdiet aliquam vehicula tempor auctor curabitur pede aenean ornare.</p>
+                    <h1 class="home-title">Mission Statement</h1>
+                    <p class="pt-3 home-desc mx-auto">
+                        <?php 
+                            $overview = readText(__DIR__.'/data/mission.txt');
+                            echo $overview;
+                         ?>
+                    </p>
                     <p class="play-shadow mt-4" data-bs-toggle="modal" data-bs-target="#watchvideomodal"><a
                             href="javascript: void(0);" class="play-btn video-play-icon"><i
                                 class="mdi mdi-play text-center"></i></a></p>
@@ -324,12 +327,13 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="about-title mx-auto text-center">
-                        <h2>A Digital web studio creating stunning &amp; Engaging online
-                            Experiences </h2>
-                        <p class="text-muted pt-4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                            commodo ligula eget dolor.
-                            Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-                            ridiculus mus donec various versions have evolved quam felis.</p>
+                        <h2>About Us</h2>
+                        <p class="text-muted pt-4">
+                            <?php 
+                                $overview = readText(__DIR__.'/data/overview.txt');
+                                echo $overview;
+                            ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -528,89 +532,6 @@
         </div>
     </section>
     <!--END TESTIMONIAL-->
-
-    <!--START GET STARTED-->
-    <section class="section section-lg bg-get-start">
-        <div class="bg-overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <h1 class="get-started-title text-white">Let's Get Started</h1>
-                    <div class="section-title-border mt-4 bg-white"></div>
-                    <p class="section-subtitle font-secondary text-white text-center pt-4">Far far away, behind the word
-                        mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <a href="#" class="btn btn-light waves-effect mt-4">Get Started <i class="mdi mdi-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--END GET STARTED-->
-
-    <!-- START BLOG -->
-    <section class="section " id="blog">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h1 class="section-title text-center">Latest News</h1>
-                    <div class="section-title-border mt-3"></div>
-                    <p class="section-subtitle text-muted text-center font-secondary pt-4">Separated they live in
-                        Bookmarksgrove right at the coast of the Semantics, a large language ocean class at a euismod
-                        mus luctus quam.</p>
-                </div>
-            </div>
-
-            <div class="row mt-4">
-                <div class="col-lg-4">
-                    <div class="blog-box mt-4">
-                        <img src="images/blog/img-1.jpg" class="img-fluid rounded" alt="">
-                        <div>
-                            <h5 class="mt-4 text-muted">UI & UX Design</h5>
-                            <h4 class="mt-3"><a href="" class="blog-title"> Doing a cross country road trip </a></h4>
-                            <p class="text-muted">She packed her seven versalia, put her initial into the belt and made
-                                herself on the way..</p>
-                            <div class="mt-3">
-                                <a href="" class="read-btn">Read More <i class="mdi mdi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="blog-box mt-4">
-                        <img src="images/blog/img-2.jpg" class="img-fluid rounded" alt="">
-                        <div>
-                            <h5 class="mt-4 text-muted">Digital Marketing</h5>
-                            <h4 class="mt-3"><a href="" class="blog-title">New exhibition at our Museum</a></h4>
-                            <p class="text-muted">Pityful a rethoric question ran over her cheek, then she continued her
-                                way.</p>
-                            <div class="mt-3">
-                                <a href="" class="read-btn">Read More <i class="mdi mdi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4">
-                    <div class="blog-box mt-4">
-                        <img src="images/blog/img-3.jpg" class="img-fluid rounded" alt="">
-                        <div>
-                            <h5 class="mt-4 text-muted">Travelling</h5>
-                            <h4 class="mt-3"><a href="" class="blog-title">Why are so many people..</a></h4>
-                            <p class="text-muted">Far far away, behind the word mountains, far from the countries
-                                Vokalia and Consonantia.</p>
-                            <div class="mt-3">
-                                <a href="" class="read-btn">Read More <i class="mdi mdi-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-    <!-- END BLOG -->
 
     <!-- CONTACT FORM START-->
     <section class="section " id="contact">
