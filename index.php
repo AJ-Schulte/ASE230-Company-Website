@@ -338,61 +338,33 @@ include './lib/JSONreader.php';
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-1.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Frank Johnson</h4>
-                        <p class="text-uppercase team-designation">CEO</p>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-2.jpg" class="img-fluid rounded">
+            <div class="row mt-5 justify-content-center g-4">
+                <?php
+                $team_members = ['evelyn_hart', 'rajan_malhotra', 'lila_torres', 'samuel_ogundipe', 'nina_zhang'];
+                foreach($team_members as $member) {
+                    $info = readTeam($member);
+                    echo '
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team-box text-center">
+                            <div class="team-wrapper">
+                                <div class="team-member">
+                                    <img alt="" src='.$info["img"].' class="img-fluid rounded">
+                                </div>
                             </div>
+                            <h4 class="team-name">'.$info["name"].'</h4>
+                            <p class="text-uppercase team-designation">'.$info["title"].'</p>
+                            <p class="text-muted pt-2">'.$info["description"].'</p>
                         </div>
-                        <h4 class="team-name">Elaine Stclair</h4>
-                        <p class="text-uppercase team-designation">Designer</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-3.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Wanda Arthur</h4>
-                        <p class="text-uppercase team-designation">Developer</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-4.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Joshua Stemple</h4>
-                        <p class="text-uppercase team-designation">Manager</p>
-                    </div>
-                </div>
-
+                    </div>';
+                }
+                ?>
             </div>
         </div>
     </section>
     <!--END ABOUT-US-->
 
-    <!--START INNOVATIONS-->
+    <!--START SERVICES-->
     <section class="section bg-light" id="pricing">
         <div class="container">
             <div class="row">
@@ -428,7 +400,7 @@ include './lib/JSONreader.php';
             <?php endforeach; ?>
         </div>
     </section>
-    <!--END INNOVATIONS-->
+    <!--END SERVICES-->
 
     <!--START TESTIMONIAL-->
     <section class="section" id="testi">
