@@ -1,5 +1,6 @@
 <?php 
 include './lib/textReader.php';
+include './lib/CSVreader.php';
 
 ?>
 <!DOCTYPE html>
@@ -460,74 +461,19 @@ include './lib/textReader.php';
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h1 class="section-title text-center">What they've said</h1>
+                    <h1 class="section-title text-center">Awards</h1>
                     <div class="section-title-border mt-3"></div>
-                    <p class="section-subtitle text-muted text-center font-secondary pt-4">The Big Oxmox advised her not
+                    <!-- I like this text too much to just up and delete it but it's not needed for the page so
+                        <p class="section-subtitle text-muted text-center font-secondary pt-4">The Big Oxmox advised her not
                         to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli.
-                    </p>
+                    </p> -->
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-lg-4">
-                    <div class="testimonial-box mt-4">
-                        <div class="testimonial-decs p-4">
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-1"></i>
-                            </div>
-                            <img src="images/testimonials/user-1.jpg" alt=""
-                                class="img-fluid mx-auto d-block img-thumbnail rounded-circle mb-4">
-                            <div class="p-1">
-                                <h5 class="text-center text-uppercase mb-3">Dennis Williams - <span
-                                        class="text-muted text-capitalize">Charleston</span></h5>
-                                <p class="text-muted text-center mb-0">“I feel confident imposing change on myself. It's
-                                    a lot more fun progressing than
-                                    looking back. That's why I ultricies enim at malesuada nibh diam on tortor neaded to
-                                    throw curve balls.” </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-box mt-4">
-                        <div class="testimonial-decs p-4">
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-1"></i>
-                            </div>
-                            <img src="images/testimonials/user-2.jpg" alt=""
-                                class="img-fluid mx-auto d-block img-thumbnail rounded-circle mb-4">
-                            <div class="p-1">
-                                <h5 class="text-center text-uppercase mb-3">Laurie Bell - <span
-                                        class="text-muted text-capitalize">Worcester</span></h5>
-                                <p class="text-muted text-center mb-0">“Our task must be to free ourselves by widening
-                                    our circle of compassion to embrace
-                                    all living creatures and the whole of quis consectetur nunc sit amet semper justo.
-                                    nature and its beauty.” </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-box mt-4">
-                        <div class="testimonial-decs p-4">
-                            <div class="testi-icon">
-                                <i class="mdi mdi-format-quote-open display-1"></i>
-                            </div>
-                            <img src="images/testimonials/user-3.jpg" alt=""
-                                class="img-fluid mx-auto d-block img-thumbnail rounded-circle mb-4">
-                            <div class="p-1">
-                                <h5 class="text-center text-uppercase mb-3">Howard Kelley - <span
-                                        class="text-muted text-capitalize">Lynchburg</span></h5>
-                                <p class="text-muted text-center mb-0">“I've learned that people will forget what you
-                                    said, people will forget what you did,
-                                    but people will never forget how donec in efficitur lectus, nec lobortis metus you
-                                    made them feel.” </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            <h5 class="text-uppercase mb-3">Year</h5>
+                <span>
+                    <?php echo readCSV("./data/awards.csv", 1); //Start at row one because who needs that header ?>
+                </span>
             </div>
         </div>
     </section>
