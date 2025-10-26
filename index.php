@@ -1,6 +1,7 @@
 <?php 
 include './lib/textReader.php';
 include './lib/CSVreader.php';
+include './lib/JSONreader.php';
 
 ?>
 <!DOCTYPE html>
@@ -338,123 +339,69 @@ include './lib/CSVreader.php';
                     </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-1.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Frank Johnson</h4>
-                        <p class="text-uppercase team-designation">CEO</p>
-                    </div>
-                </div>
 
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-2.jpg" class="img-fluid rounded">
+            <div class="row mt-5 justify-content-center g-4">
+                <?php
+                $team_members = ['evelyn_hart', 'rajan_malhotra', 'lila_torres', 'samuel_ogundipe', 'nina_zhang'];
+                foreach($team_members as $member) {
+                    $info = readTeam($member);
+                    echo '
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="team-box text-center">
+                            <div class="team-wrapper">
+                                <div class="team-member">
+                                    <img alt="" src='.$info["img"].' class="img-fluid rounded">
+                                </div>
                             </div>
+                            <h4 class="team-name">'.$info["name"].'</h4>
+                            <p class="text-uppercase team-designation">'.$info["title"].'</p>
+                            <p class="text-muted pt-2">'.$info["description"].'</p>
                         </div>
-                        <h4 class="team-name">Elaine Stclair</h4>
-                        <p class="text-uppercase team-designation">Designer</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-3.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Wanda Arthur</h4>
-                        <p class="text-uppercase team-designation">Developer</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-sm-6">
-                    <div class="team-box text-center">
-                        <div class="team-wrapper">
-                            <div class="team-member">
-                                <img alt="" src="images/team/img-4.jpg" class="img-fluid rounded">
-                            </div>
-                        </div>
-                        <h4 class="team-name">Joshua Stemple</h4>
-                        <p class="text-uppercase team-designation">Manager</p>
-                    </div>
-                </div>
-
+                    </div>';
+                }
+                ?>
             </div>
         </div>
     </section>
     <!--END ABOUT-US-->
 
-    <!--START PRICING-->
+    <!--START SERVICES-->
     <section class="section bg-light" id="pricing">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <h1 class="section-title text-center">Our Pricing</h1>
+                    <h1 class="section-title text-center">Key Products & Services</h1>
                     <div class="section-title-border mt-3"></div>
-                    <p class="section-subtitle font-secondary text-muted text-center pt-4">Call to action pricing table
-                        is really crucial to your for your business website. Make your bids stand-out with amazing
-                        options.</p>
+                    <p class="section-subtitle font-secondary text-muted text-center pt-4">Explore the technologies shaping tomorrow — from virtual reality to quantum computing.</p>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-lg-4">
-                    <div class="text-center pricing-box">
-                        <h4 class="text-uppercase">Economy</h4>
-                        <h1>$9.90</h1>
-                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
-                        <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">1GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">50MB</b></p>
-                            <p>Support: <b class="text-primary">No</b></p>
-                            <p><b class="text-primary">1</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
-                        </div>
-                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="text-center pricing-box price-active">
-                        <div class="ribbon-box"><span>Popular</span></div>
-                        <h4 class="text-uppercase">Deluxe</h4>
-                        <h1>$19.90</h1>
-                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
-                        <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">10GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">500MB</b></p>
-                            <p>Support: <b class="text-primary">Yes</b></p>
-                            <p><b class="text-primary">10</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
-                        </div>
-                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="text-center pricing-box">
-                        <h4 class="text-uppercase">Ultimate</h4>
-                        <h1>$29.90</h1>
-                        <h6 class="text-uppercase text-muted">Billing Per Month</h6>
-                        <div class="plan-features mt-5">
-                            <p>Bandwidth: <b class="text-primary">100GB</b></p>
-                            <p>Onlinespace: <b class="text-primary">2 GB</b></p>
-                            <p>Support: <b class="text-primary">Yes</b></p>
-                            <p><b class="text-primary">Unlimited</b> Domain</p>
-                            <p><b class="text-primary">No</b> Hidden Fees</p>
-                        </div>
-                        <a href="#" class="btn btn-primary waves-effect waves-light mt-5">Join Now</a>
-                    </div>
+
+            <?php
+            $keys = ['celestial', 'luminara', 'quant', 'nebula'];
+            foreach ($keys as $key):
+                $service = readService($key);
+            ?>
+            <div class="card mb-5 shadow-sm border-0">
+                <div class="card-body">
+                    <h3 class="card-title text-uppercase"><?php echo $service['name']; ?></h4>
+                    <p class="card-text"><?php echo $service['description']; ?></p>
+
+                    <?php if (isset($service['apps'])): ?>
+                        <h4 class="mt-4">Applications:</h5>
+                        <ul class="list-unstyled ms-3">
+                        <?php foreach ($service['apps'] as $appName => $appDesc): ?>
+                            <li class="mb-2">
+                            <strong><?php echo $appName; ?>:</strong> <?php echo $appDesc; ?>
+                            </li>
+                        <?php endforeach; ?>        
+                        </ul>
+                    <?php endif; ?>
                 </div>
             </div>
+            <?php endforeach; ?>
         </div>
     </section>
-    <!--ENd PRICING-->
+    <!--END SERVICES-->
 
     <!--START TESTIMONIAL-->
     <section class="section" id="testi">
