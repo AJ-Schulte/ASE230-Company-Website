@@ -89,7 +89,7 @@ include './lib/JSONreader.php';
                     <h1 class="home-title">Mission Statement</h1>
                     <p class="pt-3 home-desc mx-auto">
                         <?php 
-                            $overview = readText(__DIR__.'/data/mission.txt');
+                            $overview = readText(__DIR__.'/data/pages/mission.txt');
                             echo $overview;
                          ?>
                     </p>
@@ -332,7 +332,7 @@ include './lib/JSONreader.php';
                         <h2>About Us</h2>
                         <p class="text-muted pt-4">
                             <?php 
-                                $overview = readText(__DIR__.'/data/overview.txt');
+                                $overview = readText(__DIR__.'/data/pages/overview.txt');
                                 echo $overview;
                             ?>
                         </p>
