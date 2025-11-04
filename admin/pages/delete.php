@@ -1,12 +1,7 @@
 <?php
-$pagesDir = __DIR__ . '/../../data/pages';
+require_once __DIR__ . '/../../data/classes/Page.php';
 $title = $_GET['title'] ?? '';
-$file = $pagesDir . '/' . basename($title) . '.txt';
-
-if (file_exists($file)) {
-    unlink($file);
-}
-
+Page::delete($title);
 header("Location: index.php");
 exit;
 ?>

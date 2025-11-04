@@ -1,40 +1,28 @@
 <?php
-$pagesDir = __DIR__ . '/../../data/pages';
+require_once __DIR__ . '/../../data/classes/Page.php';
 $title = $_GET['title'] ?? '';
-$file = $pagesDir . '/' . basename($title) . '.txt';
-
-if (!file_exists($file)) {
-    die("Page not found.");
-}
+$page = Page::find($title);
+if (!$page) die("Page not found.");
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $content = trim($_POST['content']);
-    file_put_contents($file, $content);
-    header("Location: detail.php?title=" . urlencode($title));
+    $page->content = trim($_POST['content']);
+    $page->save();
+    header("Location: detail.php?title=" . urlencode($page->title));
     exit;
 }
-
-$content = file_get_contents($file);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit Page</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; }
-        textarea { width: 100%; height: 300px; }
-        button { padding: 8px 14px; background: #007BFF; color: white; border: none; border-radius: 4px; cursor: pointer; }
-        button:hover { background: #0056b3; }
-    </style>
 </head>
 <body>
-    <a href="detail.php?title=<?= urlencode($title) ?>">← Back to Details</a>
-    <h1>Edit: <?= htmlspecialchars($title) ?></h1>
-
+    <a href="detail.php?title=<?= urlencode($page->title) ?>">← Back</a>
+    <h1>Edit: <?= htmlspecialchars($page->title) ?></h1>
     <form method="POST">
-        <textarea name="content"><?= htmlspecialchars($content) ?></textarea><br><br>
-        <button type="submit">Save Changes</button>
+        <textarea name="content" rows="15" cols="100"><?= htmlspecialchars($page->content) ?></textarea><br><br>
+        <button type="submit">Save</button>
     </form>
 </body>
 </html>
