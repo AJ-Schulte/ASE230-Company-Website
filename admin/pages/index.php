@@ -1,6 +1,6 @@
 <?php
-$pagesDir = __DIR__ . '/../../data/pages';
-$files = glob($pagesDir . '/*.txt');
+require_once __DIR__ . '/../../data/classes/Page.php';
+$pages = Page::all();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,18 +26,17 @@ $files = glob($pagesDir . '/*.txt');
     <h1>Pages</h1>
     <a class="button" href="create.php">+ Create New Page</a>
     <br><br>
-
     <table>
         <tr>
             <th>Title</th>
+            <th>Last Modified</th>
             <th>Action</th>
         </tr>
-        <?php foreach ($files as $file): 
-            $title = basename($file, '.txt');
-        ?>
+        <?php foreach ($pages as $page): ?>
             <tr>
-                <td><?= htmlspecialchars($title) ?></td>
-                <td><a class="button" href="detail.php?title=<?= urlencode($title) ?>">View</a></td>
+                <td><?= htmlspecialchars($page->title) ?></td>
+                <td><?= htmlspecialchars($page->lastModified()) ?></td>
+                <td><a class="button" href="detail.php?title=<?= urlencode($page->title) ?>">View</a></td>
             </tr>
         <?php endforeach; ?>
     </table>
