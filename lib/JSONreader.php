@@ -1,7 +1,9 @@
 <?php
+$servicesLink = __DIR__.'/../data/services.json';
+$teamLink = __DIR__.'/../data/team.json';
 
-$services = json_decode(file_get_contents('C:\xampp\htdocs\ASE230-Company-Website\data\services.json'), true);
-$team = json_decode(file_get_contents('C:\xampp\htdocs\ASE230-Company-Website\data\team.json'), true);
+$services = json_decode(file_get_contents($servicesLink), true);
+$team = json_decode(file_get_contents($teamLink), true);
 
 
 function readService($serviceName){
