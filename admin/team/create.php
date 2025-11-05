@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         file_put_contents($jsonPath, json_encode($teams, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
-        header("Location: detail_team.php?title=" . urlencode($key));
+        header("Location: detail.php?title=" . urlencode($key));
         exit;
     }
 }
@@ -54,4 +54,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1>Create Team Member</h1>
 
     <?php if (!empty($error)): ?>
-        <div class="er
+        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php endif; ?>
+
+    <form method="post">
+        <label>JSON Key (unique, lowercase, no spaces)</label>
+        <input type="text" name="key" value="<?= htmlspecialchars($member['key'] ?? '') ?>" required>
+
+        <label>Name</label>
+        <input type="text" name="name" value="<?= htmlspecialchars($member['name']) ?>" required>
+
+        <label>Title</label>
+        <input type="text" name="title" value="<?= htmlspecialchars($member['title']) ?>" required>
+
+        <label>Description</label>
+        <textarea name="description" rows="4"><?= htmlspecialchars($member['description']) ?></textarea>
+
+        <label>Image URL</label>
+        <input type="text" name="img" value="<?= htmlspecialchars($member['img']) ?>">
+
+        <button type="submit">Create Member</button>
+    </form>
+</body>
+</html>
