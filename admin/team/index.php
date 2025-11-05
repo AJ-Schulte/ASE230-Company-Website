@@ -25,7 +25,7 @@ $keys = array_keys($teams);
 </head>
 <body>
     <h1>Team Members</h1>
-    <a class="button" href="edit.php">+ Add New Member</a>
+    <a class="button" href="create.php">+ Add New Member</a>
     <br><br>
     <table>
         <tr>
@@ -41,8 +41,6 @@ $keys = array_keys($teams);
             <td><?= htmlspecialchars($member['title']) ?></td>
             <td>
                 <a class="button" href="detail.php?title=<?= urlencode($key) ?>">View</a>
-                <a class="button" href="edit.php?title=<?= urlencode($key) ?>">Edit</a>
-                <a class="button" style="background:red;" href="delete.php?title=<?= urlencode($key) ?>" onclick="return confirm('Delete this member?')">Delete</a>
             </td>
         </tr>
         <?php endforeach; ?>
