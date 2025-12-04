@@ -1,4 +1,6 @@
 <?php
+require_once(__DIR__ . '/../../data/classes/JSONHelper.php');
+require_once(__DIR__ . '/../../data/classes/Team.php');
 $jsonPath = __DIR__ . '/../../data/team.json';
 $teams = json_decode(file_get_contents($jsonPath), true);
 
@@ -11,29 +13,31 @@ $member = [
 ];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $key = trim($_POST['key']); // JSON key
+    $key = trim($_POST['key']); // unique JSON key
     $name = trim($_POST['name']);
     $titleText = trim($_POST['title']);
     $description = trim($_POST['description']);
     $img = trim($_POST['img']);
 
-    // Check for duplicate key
-    if (isset($teams[$key])) {
-        $error = "A team member with this JSON key already exists.";
-    } else {
-        $teams[$key] = [
-            'name' => $name,
-            'title' => $titleText,
-            'description' => $description,
-            'img' => $img
-        ];
+    // Create the Team object
+    $member = new Team($key, $name, $titleText, $description, $img);
 
-        file_put_contents($jsonPath, json_encode($teams, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    // Convert to associative array
+    $dataArray = [
+        'name' => $member->getName(),
+        'title' => $member->getTitle(),
+        'description' => $member->getDescription(),
+        'img' => $member->getImage()
+    ];
 
-        header("Location: detail.php?title=" . urlencode($key));
-        exit;
-    }
+    // Add to JSON using the helper
+    JSONHelper::add($jsonPath, $key, $dataArray);
+
+    header("Location: detail.php?title=" . urlencode($key));
+    exit;
 }
+
+
 ?>
 
 <!DOCTYPE html>

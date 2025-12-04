@@ -1,6 +1,8 @@
 <?php
+require_once(__DIR__ . '/../../data/classes/JSONHelper.php');
+require_once(__DIR__ . '/../../data/classes/Team.php');
 $jsonPath = __DIR__ . '/../../data/team.json';
-$teams = json_decode(file_get_contents($jsonPath), true);
+$teams = JSONHelper::read($jsonPath);
 $keys = array_keys($teams);
 ?>
 <!DOCTYPE html>
